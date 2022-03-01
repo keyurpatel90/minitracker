@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="loop_minitracker_trackinginfo" resource="default" engine="innodb" comment="loop_minitracker_trackinginfo Table">
+		<column xsi:type="int" name="trackinginfo_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="trackinginfo_id"/>
+		</constraint>
+		<column name="quote_id" padding="10" unsigned="true" nullable="false" xsi:type="int" comment="quote_id"/>
+		<column name="sku" nullable="false" xsi:type="text" comment="sku"/>
+		<column name="tracking_code" nullable="true" xsi:type="text" comment="tracking_code"/>
+		<column name="tracking_message" nullable="true" xsi:type="text" comment="tracking_message"/>
+		<column name="created_at" nullable="true" xsi:type="datetime" comment="created_at"/>
+		<index referenceId="TRACKER_QUOTE_INDEXING" indexType="btree">
+			<column name="trackinginfo_id"/>
+			<column name="quote_id"/>
+		</index>
+		<constraint xsi:type="foreign" referenceId="TRACKER_TRACKINGINFO_ID_QUOTE_QUOTE_ID" table="loop_minitracker_trackinginfo"
+					column="quote_id" referenceTable="quote" referenceColumn="entity_id"
+					onDelete="CASCADE"/>
+	</table>
+</schema>

@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route url="/V1/loop-minitracker/tracking" method="GET">
+		<service class="Loop\MiniTracker\Api\TrackingInfoRepositoryInterface" method="getAll"/>
+		<resources>
+			<resource ref="anonymous"/>
+		</resources>
+	</route>
+	<route url="/V1/loop-minitracker/trackinginfo/search" method="GET">
+		<service class="Loop\MiniTracker\Api\TrackingInfoRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="Loop_MiniTracker::TrackingInfo_view"/>
+		</resources>
+	</route>
+	<route url="/V1/loop-minitracker/trackinginfo/:trackinginfoId" method="GET">
+		<service class="Loop\MiniTracker\Api\TrackingInfoRepositoryInterface" method="get"/>
+		<resources>
+			<resource ref="Loop_MiniTracker::TrackingInfo_view"/>
+		</resources>
+	</route>
+</routes>

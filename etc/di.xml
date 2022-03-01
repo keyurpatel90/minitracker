@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Loop\MiniTracker\Api\TrackingManagementInterface" type="Loop\MiniTracker\Model\TrackingManagement"/>
+	<preference for="Loop\MiniTracker\Api\TrackingInfoRepositoryInterface" type="Loop\MiniTracker\Model\TrackingInfoRepository"/>
+	<preference for="Loop\MiniTracker\Api\Data\TrackingInfoInterface" type="Loop\MiniTracker\Model\Data\TrackingInfo"/>
+	<preference for="Loop\MiniTracker\Api\Data\TrackingInfoSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<preference for="Loop\MiniTracker\Api\Data\RequestInfoInterface" type="Loop\MiniTracker\Model\Request\RequestInfo" />
+
+	<virtualType name="Loop\MiniTracker\Model\Logger\Handler" type="Magento\Framework\Logger\Handler\Base">
+		<arguments>
+			<argument name="fileName" xsi:type="string">/var/log/tracking.log</argument>
+		</arguments>
+	</virtualType>
+
+	<type name="Loop\MiniTracker\Model\Logger\Logger">
+		<arguments>
+			<argument name="name" xsi:type="string">trackingLogger</argument>
+			<argument name="handlers" xsi:type="array">
+				<item name="system" xsi:type="object">Loop\MiniTracker\Model\Logger\Handler</item>
+			</argument>
+		</arguments>
+	</type>
+</config>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="loop" translate="loop" sortOrder="1">
+            <label>Loop</label>
+        </tab>
+        <section id="minitracker_section" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <class>separator-top</class>
+            <label>Tracking Configuration</label>
+            <tab>loop</tab>
+            <resource>Loop_MiniTracker::TrackingInfo</resource>
+            <group id="general" translate="label" type="text" sortOrder="19" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>MiniTracker Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>This will enable tracking module</comment>
+                </field>
+                <field id="tracking_host" translate="host" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Tracking Host URL</label>
+                    <comment>Host name url eg. https://hostname.com/tracking</comment>
+                </field>
+                <field id="timeout" translate="Timeout" type="text" sortOrder="3" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Connection time out</label>
+                    <comment>Provide time to wait in second.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

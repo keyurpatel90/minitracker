@@ -1,0 +1,22 @@
+{
+    "name": "loop/module-minitracker",
+    "description": "Module to track code against sku",
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Keyur Patel",
+            "email": "keyur_patel90@yahoo.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Loop\\MiniTracker\\": ""
+        }
+    }
+}
