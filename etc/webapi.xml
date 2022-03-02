@@ -9,13 +9,13 @@
 	<route url="/V1/loop-minitracker/trackinginfo/search" method="GET">
 		<service class="Loop\MiniTracker\Api\TrackingInfoRepositoryInterface" method="getList"/>
 		<resources>
-			<resource ref="Loop_MiniTracker::TrackingInfo_view"/>
+			<resource ref="anonymous"/>
 		</resources>
 	</route>
 	<route url="/V1/loop-minitracker/trackinginfo/:trackinginfoId" method="GET">
 		<service class="Loop\MiniTracker\Api\TrackingInfoRepositoryInterface" method="get"/>
 		<resources>
-			<resource ref="Loop_MiniTracker::TrackingInfo_view"/>
+			<resource ref="anonymous"/>
 		</resources>
 	</route>
 </routes>
