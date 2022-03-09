@@ -81,7 +81,7 @@ class CartAddProductComplete implements \Magento\Framework\Event\ObserverInterfa
             }
         }catch (Exception $ex){
             $this->logger->critical("Exception while adding product to cart event ".$ex->getMessage());
-            throwException(new \RuntimeException($ex->getMessage()));
+            throw new \RuntimeException($ex->getMessage());
         }
     }
 }
